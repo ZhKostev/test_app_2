@@ -1,0 +1,23 @@
+<h1>Listing Campaign History Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campaign API ID</th>
+      <th>Generated At</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @campaign_history_comments.each do |campaign_history_comment| %>
+      <tr>
+        <td><%= campaign_history_comment.api_campaign_id  %> (<%= campaign_history_comment.campaign.try(:name) || 'N/A' %>)</td>
+        <td><%= l campaign_history_comment.created_at  %></td>
+        <td><%= link_to 'Show', campaign_history_comment %></td>
+        <td><%= link_to 'Edit', edit_campaign_history_comment_path(campaign_history_comment) %></td>
+        <td><%= link_to 'Destroy', campaign_history_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

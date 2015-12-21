@@ -1,0 +1,17 @@
+<div>
+  <div>
+    Campaign Name: <%= @campaign_history_comment.campaign.try(:name) || 'N/A' %>
+  </div>
+  <div>
+    Campaign API ID: <%= @campaign_history_comment.api_campaign_id%>
+  </div>
+  <div>
+    Comment: <%= @campaign_history_comment.comment%>
+  </div>
+  <div>
+    Created at: <%= l @campaign_history_comment.created_at%>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_campaign_history_comment_path(@campaign_history_comment) %> |
+<%= link_to 'Back', campaign_history_comments_path %>

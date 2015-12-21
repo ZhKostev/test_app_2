@@ -1,0 +1,30 @@
+
+<%= form_for(@campaign_history_comment) do |f| %>
+  <% if @campaign_history_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign_history_comment.errors.count, "error") %> prohibited this campaign_history_comment from being saved:</h2>
+
+      <ul>
+      <% @campaign_history_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    Campaign Name: <%= @campaign_history_comment.campaign.try(:name) || 'N/A' %>
+  </div>
+  <div>
+    Campaign API ID: <%= @campaign_history_comment.api_campaign_id%>
+  </div>
+<!--styles requirements were not specified-->
+  <div>
+    <label style="vertical-align: top">Comment</label>
+    <%= f.text_area :comment%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

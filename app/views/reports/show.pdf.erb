@@ -1,0 +1,46 @@
+<% #styles where not specified in docs. Creative are not fetched according to issue in API %>
+<h1><%= @campaign.name %></h1>
+<table>
+  <tbody>
+  <tr><td>Campaign Name</td><td><%= @campaign.name %></td></tr>
+  <tr><td>Start Date</td><td><%= @campaign.start_date %></td></tr>
+  <tr><td>End Date</td><td><%= @campaign.end_date %></td></tr>
+  <tr><td>Media Budget</td><td><%= @campaign.media_budget %></td></tr>
+  <tr><td>Media Spent</td><td><%= @campaign.media_spent %></td></tr>
+  </tbody>
+</table>
+
+<table style="width: 100%">
+  <thead>
+  <tr>
+    <th style="text-align: left">Campaign Name</th>
+    <th>Imps.</th>
+    <th>Clicks</th>
+    <th>Ctr</th>
+    <th>Conv.</th>
+    <th>eCPM</th>
+    <th>eCPC</th>
+    <th>eCPA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="text-align: left"><%= @campaign.name %></td>
+    <td style="text-align: center"><%= @campaign.impressions %></td>
+    <td style="text-align: center"><%= @campaign.clicks %></td>
+    <td style="text-align: center"><%= @campaign.ctr %></td>
+    <td style="text-align: center"><%= @campaign.conversions %></td>
+    <td style="text-align: center"><%= @campaign.ecpm %></td>
+    <td style="text-align: center"><%= @campaign.ecpc %></td>
+    <td style="text-align: center"><%= @campaign.ecpa %></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<%= form_tag reports_path do %>
+  <% if @report_generator && @report_generator.errors.any? %>
+    <ul>
+      <% @report_generator.errors.each do |error_msg| %>
+        <li><%= error_msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="form_group">
+    <label for="campaign_id">Campaign ID:</label>
+    <%= text_field_tag :campaign_id %>
+    <%= submit_tag 'Create report' %>
+  </div>
+<% end %>
+
+<% if @report_generator && @report_generator.campaign %>
+ <div> <%= link_to 'Download report', report_path(@report_generator.campaign, :format => :pdf) %></div>
+<% end %>
+<div> <%= link_to 'Report History', campaign_history_comments_path %></div>
+<div> <%= link_to 'Logout', destroy_user_session_path, :method => :delete %></div>

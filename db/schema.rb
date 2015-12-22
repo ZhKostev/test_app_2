@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221070756) do
+ActiveRecord::Schema.define(version: 20151222075125) do
 
   create_table "campaign_history_comments", force: :cascade do |t|
     t.integer  "campaign_id",     limit: 4
@@ -43,6 +43,24 @@ ActiveRecord::Schema.define(version: 20151221070756) do
   end
 
   add_index "campaigns", ["campaign_id"], name: "campaign_id_index", using: :btree
+
+  create_table "creatives", force: :cascade do |t|
+    t.integer  "campaign_id",     limit: 4
+    t.integer  "api_creative_id", limit: 4
+    t.string   "name",            limit: 255
+    t.integer  "impressions",     limit: 4
+    t.integer  "clicks",          limit: 4
+    t.integer  "ctr",             limit: 4
+    t.integer  "conversions",     limit: 4
+    t.float    "ecpm",            limit: 24
+    t.float    "ecpc",            limit: 24
+    t.float    "ecpa",            limit: 24
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "creatives", ["api_creative_id"], name: "api_creative_id_index", using: :btree
+  add_index "creatives", ["campaign_id"], name: "campaign_id_index", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",           limit: 255, default: "", null: false

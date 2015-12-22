@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:id])
+    @campaign = Campaign.includes(:creatives).find(params[:id])
     respond_to { |format| format.pdf { render :pdf => "show" } }
   end
 
